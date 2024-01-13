@@ -1,10 +1,9 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Content</title>
+    <title>Protected Content</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -27,6 +26,13 @@ html
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 20px;
+            display: none; /* Content initially hidden */
+        }
+
+        input {
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         button {
@@ -37,55 +43,30 @@ html
             border: none;
             cursor: pointer;
         }
-
-        div {
-            max-width: 600px;
-            margin-top: 30px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #4285f4; /* Google Blue */
-        }
-
-        a {
-            color: #4285f4; /* Google Blue */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
     <script>
-        function requestFollow() {
-            var followConfirmed = confirm("To access exclusive content, please follow our Instagram page. Click OK after you've followed.");
+        function showContent() {
+            var enteredPassword = document.getElementById('passwordInput').value;
+            var correctPassword = '1234'; // Replace with your actual password
 
-            if (followConfirmed) {
-                // Redirect to your Instagram page
-                window.location.href = 'https://www.instagram.com/techverge_nellorien/';
+            if (enteredPassword === correctPassword) {
+                document.getElementById('content').style.display = 'block'; // Display content
             } else {
-                alert("Sorry, you need to follow our Instagram page to access the content.");
+                alert('Incorrect password. Please try again.');
             }
         }
     </script>
 </head>
 <body>
-    <h1>Welcome to Exclusive Content!</h1>
-    <p>This content is special! To access it, please follow our <a href="https://www.instagram.com/techverge_nellorien/" target="_blank">Instagram page</a>.</p>
-    <button onclick="requestFollow()">Follow on Instagram</button>
+    <h1>Welcome to Protected Content!</h1>
+    <p>This content is protected. Enter the password to reveal it.</p>
 
-    <!-- Your Content Goes Here -->
-    <div>
-        <h2>Exclusive Content:</h2>
-        <p>This is where you can include your text. Check out this <a href="https://example.com" target="_blank">link</a>.</p>
-        <p>Another paragraph with <a href="https://example2.com" target="_blank">another link</a>.</p>
-        <img src="https://via.placeholder.com/400x200" alt="Placeholder Image 1">
-        <img src="https://via.placeholder.com/400x200" alt="Placeholder Image 2">
-    </div>
+    <label for="passwordInput">Password:</label>
+    <input type="password" id="passwordInput">
+
+    <button onclick="showContent()">Enter</button>
+
+    <!-- Protected Content Goes Here -->
+    <p id="content">This is the protected content. Replace this with your actual content.</p>
 </body>
 </html>
