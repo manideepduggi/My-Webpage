@@ -49,10 +49,17 @@
     <script>
         function showContent() {
             var enteredPassword = document.getElementById('passwordInput').value;
-            var correctPassword = '1234'; // Replace with your actual password
 
-            if (enteredPassword === correctPassword) {
-                document.getElementById('content').style.display = 'block'; // Display content
+            // Define your passwords and corresponding content here
+            var passwordContentMap = {
+                '1234': 'content1',
+                '4567': 'content2'
+            };
+
+            var contentId = passwordContentMap[enteredPassword];
+
+            if (contentId) {
+                document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
             } else {
                 alert('Incorrect password. Please try again.');
             }
@@ -68,7 +75,10 @@
 
     <button onclick="showContent()">Enter</button>
 
-    <!-- Protected Content Goes Here -->
-    <p id="content">This is the protected content. Replace this with your actual content.</p>
+    <!-- Content 1 -->
+    <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
+
+    <!-- Content 2 -->
+    <p id="content2">This is the content for password "4567". Replace this with your actual content.</p>
 </body>
 </html>
