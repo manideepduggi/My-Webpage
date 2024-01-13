@@ -1,17 +1,73 @@
+html
 <!DOCTYPE html>
-<html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exclusive Content</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4285f4; /* Google Blue */
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4285f4;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        div {
+            max-width: 600px;
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4285f4; /* Google Blue */
+        }
+
+        a {
+            color: #4285f4; /* Google Blue */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
     <script>
         function requestFollow() {
             var followConfirmed = confirm("To access exclusive content, please follow our Instagram page. Click OK after you've followed.");
 
             if (followConfirmed) {
                 // Redirect to your Instagram page
-                window.location.href = 'https://www.instagram.com/techverge_nellorien/';
+                window.location.href = 'https://www.instagram.com/your_instagram_page/';
             } else {
                 alert("Sorry, you need to follow our Instagram page to access the content.");
             }
@@ -28,6 +84,8 @@
         <h2>Exclusive Content:</h2>
         <p>This is where you can include your text. Check out this <a href="https://example.com" target="_blank">link</a>.</p>
         <p>Another paragraph with <a href="https://example2.com" target="_blank">another link</a>.</p>
+        <img src="https://via.placeholder.com/400x200" alt="Placeholder Image 1">
+        <img src="https://via.placeholder.com/400x200" alt="Placeholder Image 2">
     </div>
 </body>
 </html>
