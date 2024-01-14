@@ -120,8 +120,12 @@
 
             if (lastVisibleContent) {
                 var contentToCopy = lastVisibleContent.innerText;
-                navigator.clipboard.writeText(contentToCopy);
-                alert('Content copied to clipboard!');
+                navigator.clipboard.writeText(contentToCopy).then(function() {
+                    alert('Content copied to clipboard!');
+                }).catch(function(err) {
+                    console.error('Unable to copy to clipboard', err);
+                    alert('Failed to copy content. Please try again.');
+                });
             } else {
                 alert('No content to copy. Enter the password and reveal content first.');
             }
