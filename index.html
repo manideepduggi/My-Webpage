@@ -121,13 +121,13 @@
             if (lastVisibleContent) {
                 var contentToCopy = lastVisibleContent.innerText;
                 navigator.clipboard.writeText(contentToCopy).then(function() {
-                    alert('Content copied to clipboard!');
+                    alert('Content copied!');
                 }).catch(function(err) {
                     console.error('Unable to copy to clipboard', err);
                     alert('Failed to copy content. Please try again.');
                 });
             } else {
-                alert('No content to copy. Enter the password and reveal content first.');
+                alert('No content to copy. Enter the magic code and reveal content first.');
             }
         }
 
@@ -149,10 +149,10 @@
 </head>
 <body>
     <h1>Welcome to Tech Verge!</h1>
-    <p>Enter the password to reveal it.</p>
+    <p>Enter the magic code to reveal it.</p>
 
-    <label for="passwordInput">Password:</label>
-    <input type="password" id="passwordInput" placeholder="Enter the password">
+    <label for="passwordInput">Magic Code</label>
+    <input type="password" id="passwordInput" placeholder="Enter the Magic Code">
 
     <button onclick="showContent()">Enter</button>
 
