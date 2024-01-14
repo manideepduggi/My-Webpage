@@ -64,15 +64,16 @@
         }
     </style>
     <script>
+        // Define your passwords and corresponding content here
+        var passwordContentMap = {
+            '1234': ['content1', 'content2'],
+            '4567': ['content3', 'content4'],
+            '420': ['content5', 'content6'], // Added the password "420"
+            // Add more passwords and corresponding content as needed
+        };
+
         function showContent() {
             var enteredPassword = document.getElementById('passwordInput').value;
-
-            // Define your passwords and corresponding content here
-            var passwordContentMap = {
-                '1234': ['content1', 'content2'],
-                '4567': ['content3', 'content4'],
-                // Add more passwords and corresponding content as needed
-            };
 
             var contentIds = passwordContentMap[enteredPassword];
 
@@ -100,7 +101,7 @@
         function copyContent() {
             var visibleContentElements = document.querySelectorAll('p[id^="content"]:not([style*="display: none"])');
             var lastVisibleContent = visibleContentElements[visibleContentElements.length - 1];
-            
+
             if (lastVisibleContent) {
                 var contentToCopy = lastVisibleContent.innerText;
                 navigator.clipboard.writeText(contentToCopy);
