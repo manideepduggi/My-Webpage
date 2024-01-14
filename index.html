@@ -44,6 +44,7 @@
             cursor: pointer;
             width: 100%;
             box-sizing: border-box;
+            margin-bottom: 10px;
         }
     </style>
     <script>
@@ -70,6 +71,18 @@
                 alert('Incorrect password. Please try again.');
             }
         }
+
+        function copyContent() {
+            var visibleContent = document.querySelector('p[id^="content"]:not([style*="display: none"])');
+            
+            if (visibleContent) {
+                var contentToCopy = visibleContent.innerText;
+                navigator.clipboard.writeText(contentToCopy);
+                alert('Content copied to clipboard!');
+            } else {
+                alert('No content to copy. Enter the password and reveal content first.');
+            }
+        }
     </script>
 </head>
 <body>
@@ -80,6 +93,7 @@
     <input type="password" id="passwordInput" placeholder="Enter the password">
 
     <button onclick="showContent()">Enter</button>
+    <button onclick="copyContent()">Copy Content</button>
 
     <!-- Content 1 -->
     <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
