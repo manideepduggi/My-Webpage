@@ -3,53 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram-Inspired Page</title>
+    <title>Protected Content</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #fafafa;
+            background-color: #f7f7f7;
+            color: #333;
             margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #405de6; /* Instagram Blue */
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
-            color: #405de6; /* Instagram Blue */
+            color: #4285f4; /* Google Blue */
         }
 
         p {
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 20px;
-            display: none;
+            display: none; /* Content initially hidden */
         }
 
         input {
             font-size: 16px;
             padding: 10px;
             margin-bottom: 10px;
-            width: calc(100% - 20px);
+            width: 100%;
             box-sizing: border-box;
         }
 
         button {
-            background-color: #405de6; /* Instagram Blue */
+            background-color: #4285f4;
             color: white;
             font-size: 16px;
             padding: 10px;
@@ -57,72 +44,41 @@
             cursor: pointer;
             width: 100%;
             box-sizing: border-box;
-            margin-top: 10px;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .content img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        .content p {
-            display: none;
-        }
-
-        .content button {
-            background-color: #405de6; /* Instagram Blue */
-            color: white;
-            font-size: 16px;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 10px;
         }
     </style>
     <script>
-        // JavaScript functions (showContent, copyContent) go here
+        function showContent() {
+            var enteredPassword = document.getElementById('passwordInput').value;
+
+            // Define your passwords and corresponding content here
+            var passwordContentMap = {
+                '1234': 'content1',
+                '4567': 'content2'
+            };
+
+            var contentId = passwordContentMap[enteredPassword];
+
+            if (contentId) {
+                document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
     </script>
 </head>
 <body>
+    <h1>Welcome to Protected Content!</h1>
+    <p>This content is protected. Enter the password to reveal it.</p>
 
-    <header>
-        <h1>Instagram-Inspired Page</h1>
-    </header>
+    <label for="passwordInput">Password:</label>
+    <input type="password" id="passwordInput" placeholder="Enter the password">
 
-    <div class="container">
+    <button onclick="showContent()">Enter</button>
 
-        <p>This content is protected. Enter the password to reveal it.</p>
+    <!-- Content 1 -->
+    <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
 
-        <label for="passwordInput">Password:</label>
-        <input type="password" id="passwordInput" placeholder="Enter the password">
-
-        <button onclick="showContent()">Enter</button>
-
-        <div class="content">
-            <!-- Content 1 -->
-            <img src="https://via.placeholder.com/600x400" alt="Content 1 Image">
-            <p id="content1">This is the content for password "1234". Replace this with your actual content.
-                <button onclick="copyContent('content1')">Copy Content</button>
-            </p>
-
-            <!-- Content 2 -->
-            <img src="https://via.placeholder.com/600x400" alt="Content 2 Image">
-            <p id="content2">This is the content for password "4567". Replace this with your actual content.
-                <button onclick="copyContent('content2')">Copy Content</button>
-            </p>
-        </div>
-
-    </div>
-
+    <!-- Content 2 -->
+    <p id="content2">This is the content for password "4567". Replace this with your actual content.</p>
 </body>
 </html>
