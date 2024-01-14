@@ -22,84 +22,22 @@
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 20px;
-            display: none; /* Content initially hidden */
-        }
-
-        input {
-            font-size: 16px;
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 80%;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4285f4;
-            color: white;
-            font-size: 16px;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 80%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
         }
     </style>
-    <script>
-        function showContent() {
-            var enteredPassword = document.getElementById('passwordInput').value;
-
-            // Define your passwords and corresponding content here
-            var passwordContentMap = {
-                '1234': 'content1',
-                '4567': 'content2'
-            };
-
-            var contentId = passwordContentMap[enteredPassword];
-
-            // Hide all content elements
-            var allContentElements = document.querySelectorAll('p[id^="content"]');
-            allContentElements.forEach(function (element) {
-                element.style.display = 'none';
-            });
-
-            if (contentId) {
-                document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
-                document.getElementById('copyContentButton').style.display = 'block'; // Display the "Copy Content" button
-            } else {
-                alert('Incorrect password. Please try again.');
-            }
-        }
-
-        function copyContent() {
-            var visibleContent = document.querySelector('p[id^="content"]:not([style*="display: none"])');
-            
-            if (visibleContent) {
-                var contentToCopy = visibleContent.innerText;
-                navigator.clipboard.writeText(contentToCopy);
-                alert('Content copied to clipboard!');
-            } else {
-                alert('No content to copy. Enter the password and reveal content first.');
-            }
-        }
-    </script>
 </head>
 <body>
     <h1>Welcome to Protected Content!</h1>
-    <p>This content is protected. Enter the password to reveal it.</p>
-
-    <label for="passwordInput">Password:</label><br>
-    <input type="password" id="passwordInput" placeholder="Enter the password"><br>
-
-    <button onclick="showContent()">Enter</button><br>
+    <p>This content is protected. To access it, please follow these steps:</p>
+    
+    <ol>
+        <li>Send a direct message with the password to unlock the content.</li>
+        <li>Once the password is verified, you will receive the content.</li>
+    </ol>
 
     <!-- Content 1 -->
-    <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
+    <p id="content1" style="display: none;">This is the content for password "1234". Replace this with your actual content.</p>
 
     <!-- Content 2 -->
-    <p id="content2">This is the content for password "4567". Replace this with your actual content.</p>
-
-    <!-- Copy Content button (initially hidden) -->
-    <button id="copyContentButton" onclick="copyContent()" style="display: none;">Copy Content</button>
+    <p id="content2" style="display: none;">This is the content for password "4567". Replace this with your actual content.</p>
 </body>
 </html>
