@@ -11,9 +11,7 @@
             color: #333;
             margin: 0;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
         }
 
         h1 {
@@ -31,7 +29,7 @@
             font-size: 16px;
             padding: 10px;
             margin-bottom: 10px;
-            width: 100%;
+            width: 80%;
             box-sizing: border-box;
         }
 
@@ -42,9 +40,9 @@
             padding: 10px;
             border: none;
             cursor: pointer;
-            width: 100%;
+            width: 80%;
             box-sizing: border-box;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
     </style>
     <script>
@@ -90,10 +88,10 @@
     <h1>Welcome to Protected Content!</h1>
     <p>This content is protected. Enter the password to reveal it.</p>
 
-    <label for="passwordInput">Password:</label>
-    <input type="password" id="passwordInput" placeholder="Enter the password">
+    <label for="passwordInput">Password:</label><br>
+    <input type="password" id="passwordInput" placeholder="Enter the password"><br>
 
-    <button onclick="showContent()">Enter</button>
+    <button onclick="showContent()">Enter</button><br>
 
     <!-- Content 1 -->
     <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
