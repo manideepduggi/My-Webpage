@@ -58,6 +58,19 @@
             cursor: pointer;
         }
 
+        #addContentButton {
+            display: none; /* Add Content button initially hidden */
+            background-color: #4285f4;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
         #addContentForm {
             display: none; /* Content initially hidden */
             margin-top: 20px;
@@ -88,6 +101,9 @@
                     document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
                 });
                 document.getElementById('copyButton').style.display = 'block'; // Display the copy button
+
+                // Display the "Add Content" button only when the password is "420"
+                document.getElementById('addContentButton').style.display = enteredPassword === '420' ? 'block' : 'none';
 
                 // Display the "Add Content" form only after entering the password "420"
                 if (enteredPassword === '420') {
@@ -150,6 +166,9 @@
 
     <!-- Copy Content Button -->
     <button id="copyButton" onclick="copyContent()">Copy Content</button>
+
+    <!-- Add Content Button -->
+    <button id="addContentButton" onclick="document.getElementById('addContentForm').style.display='block'">Add Content</button>
 
     <!-- Add Content Form -->
     <div id="addContentForm">
