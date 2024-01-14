@@ -64,11 +64,11 @@
 
             // Define your passwords and corresponding content here
             var passwordContentMap = {
-                '1234': 'content1',
-                '4567': 'content2'
+                '1234': ['content1', 'content2'],
+                '4567': ['content3', 'content4']
             };
 
-            var contentId = passwordContentMap[enteredPassword];
+            var contentIds = passwordContentMap[enteredPassword];
 
             // Hide all content elements
             var allContentElements = document.querySelectorAll('p[id^="content"]');
@@ -76,8 +76,10 @@
                 element.style.display = 'none';
             });
 
-            if (contentId) {
-                document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
+            if (contentIds) {
+                contentIds.forEach(function (contentId) {
+                    document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
+                });
                 document.getElementById('copyButton').style.display = 'block'; // Display the copy button
             } else {
                 alert('Incorrect password. Please try again.');
@@ -85,7 +87,7 @@
         }
 
         function copyContent() {
-            var visibleContent = document.querySelector('p[id^="content"]:not([style*="display: none"])');
+            var visibleContent = document.getElementById('content2');
             
             if (visibleContent) {
                 var contentToCopy = visibleContent.innerText;
@@ -110,7 +112,7 @@
     <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
 
     <!-- Content 2 -->
-    <p id="content2">This is the content for password "4567". Replace this with your actual content.</p>
+    <p id="content2">This is the content for password "1234". Replace this with your actual content.</p>
 
     <!-- Copy Content Button -->
     <button id="copyButton" onclick="copyContent()">Copy Content</button>
