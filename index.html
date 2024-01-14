@@ -67,6 +67,7 @@
 
             if (contentId) {
                 document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
+                document.getElementById('copyContentButton').style.display = 'block'; // Display the "Copy Content" button
             } else {
                 alert('Incorrect password. Please try again.');
             }
@@ -93,12 +94,14 @@
     <input type="password" id="passwordInput" placeholder="Enter the password">
 
     <button onclick="showContent()">Enter</button>
-    <button onclick="copyContent()">Copy Content</button>
 
     <!-- Content 1 -->
     <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
 
     <!-- Content 2 -->
     <p id="content2">This is the content for password "4567". Replace this with your actual content.</p>
+
+    <!-- Copy Content button (initially hidden) -->
+    <button id="copyContentButton" onclick="copyContent()" style="display: none;">Copy Content</button>
 </body>
 </html>
