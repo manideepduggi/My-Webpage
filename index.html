@@ -57,6 +57,11 @@
             border: none;
             cursor: pointer;
         }
+
+        #addContentForm {
+            display: none; /* Content initially hidden */
+            margin-top: 20px;
+        }
     </style>
     <script>
         function showContent() {
@@ -82,6 +87,11 @@
                     document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
                 });
                 document.getElementById('copyButton').style.display = 'block'; // Display the copy button
+
+                // Display the "Add Content" form only after entering the password "420"
+                if (enteredPassword === '420') {
+                    document.getElementById('addContentForm').style.display = 'block';
+                }
             } else {
                 alert('Incorrect password. Please try again.');
             }
@@ -97,6 +107,21 @@
                 alert('Content copied to clipboard!');
             } else {
                 alert('No content to copy. Enter the password and reveal content first.');
+            }
+        }
+
+        function addContent() {
+            var newPassword = document.getElementById('newPasswordInput').value;
+            var newContent = document.getElementById('newContentInput').value;
+
+            // Add new password and content to the map
+            if (newPassword && newContent) {
+                passwordContentMap[newPassword] = ['content' + (Object.keys(passwordContentMap).length * 2 + 1), 'content' + (Object.keys(passwordContentMap).length * 2 + 2)];
+                document.getElementById('newPasswordInput').value = '';
+                document.getElementById('newContentInput').value = '';
+                alert('New content added successfully!');
+            } else {
+                alert('Please enter both a new password and content.');
             }
         }
     </script>
@@ -124,5 +149,17 @@
 
     <!-- Copy Content Button -->
     <button id="copyButton" onclick="copyContent()">Copy Content</button>
+
+    <!-- Add Content Form -->
+    <div id="addContentForm">
+        <h2>Add New Content</h2>
+        <label for="newPasswordInput">New Password:</label>
+        <input type="text" id="newPasswordInput" placeholder="Enter the new password">
+
+        <label for="newContentInput">New Content:</label>
+        <input type="text" id="newContentInput" placeholder="Enter the new content">
+
+        <button onclick="addContent()">Add Content</button>
+    </div>
 </body>
 </html>
