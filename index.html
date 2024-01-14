@@ -5,46 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protected Content</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            color: #4285f4; /* Google Blue */
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            display: none; /* Content initially hidden */
-        }
-
-        input {
-            font-size: 16px;
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #4285f4;
-            color: white;
-            font-size: 16px;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            box-sizing: border-box;
-        }
+        /* Your CSS styles here */
     </style>
     <script>
         function showContent() {
@@ -58,6 +19,12 @@
 
             var contentId = passwordContentMap[enteredPassword];
 
+            // Hide all content elements
+            var allContentElements = document.querySelectorAll('p[id^="content"]');
+            allContentElements.forEach(function (element) {
+                element.style.display = 'none';
+            });
+
             if (contentId) {
                 document.getElementById(contentId).style.display = 'block'; // Display the corresponding content
             } else {
@@ -67,18 +34,6 @@
     </script>
 </head>
 <body>
-    <h1>Welcome to Protected Content!</h1>
-    <p>This content is protected. Enter the password to reveal it.</p>
-
-    <label for="passwordInput">Password:</label>
-    <input type="password" id="passwordInput" placeholder="Enter the password">
-
-    <button onclick="showContent()">Enter</button>
-
-    <!-- Content 1 -->
-    <p id="content1">This is the content for password "1234". Replace this with your actual content.</p>
-
-    <!-- Content 2 -->
-    <p id="content2">This is the content for password "4567". Replace this with your actual content.</p>
+    <!-- Your HTML content here -->
 </body>
 </html>
