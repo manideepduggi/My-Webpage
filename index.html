@@ -65,7 +65,8 @@
             // Define your passwords and corresponding content here
             var passwordContentMap = {
                 '1234': ['content1', 'content2'],
-                '4567': ['content3', 'content4']
+                '4567': ['content3', 'content4'],
+                // Add more passwords and corresponding content as needed
             };
 
             var contentIds = passwordContentMap[enteredPassword];
@@ -87,10 +88,11 @@
         }
 
         function copyContent() {
-            var visibleContent = document.getElementById('content2');
+            var visibleContentElements = document.querySelectorAll('p[id^="content"]:not([style*="display: none"])');
+            var lastVisibleContent = visibleContentElements[visibleContentElements.length - 1];
             
-            if (visibleContent) {
-                var contentToCopy = visibleContent.innerText;
+            if (lastVisibleContent) {
+                var contentToCopy = lastVisibleContent.innerText;
                 navigator.clipboard.writeText(contentToCopy);
                 alert('Content copied to clipboard!');
             } else {
